@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - HIBP Style</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      margin: 0;
+      padding: 20px;
+      color: #ffffff; 
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h1, h2, p, label, .status {
+      color: #ffffff; 
+    }
+    .card {
+      background:#1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    button.danger {
+      background: #dc2626;
+    }
+    button.danger:hover {
+      background: #b91c1c;
+    }
+    input, select {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #374151;
+      background: #111827;
+      color: #ffffff;
+      flex: 1;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+    .green {
+      color: #22c55e; /* Verified = green */
+    }
+    .red {
+      color: #ef4444; /* Not verified = red */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Settings</h1>
+
+    <!-- Account Verification -->
+    <div class="card">
+      <h2>Account Verification</h2>
+      <p>Verify your account to access personalized breach data.</p>
+      <div class="row">
+        <button>Send Verification Email</button>
+        <span class="status red">Not Verified</span>
+      </div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="card">
+      <h2>Notifications</h2>
+      <label>
+        <input type="checkbox" checked>
+        Get notified when your email appears in new breaches
+      </label>
+    </div>
+
+    <!-- Subscription -->
+    <div class="card">
+      <h2>Subscription & Billing</h2>
+      <p>Manage your subscription tier and payment information.</p>
+      <div class="row">
+        <select>
+          <option>Free (basic monitoring)</option>
+          <option>Standard – 50 requests/min</option>
+          <option>Premium – 150 requests/min</option>
+        </select>
+        <button>Manage Billing</button>
+      </div>
+    </div>
+
+    <!-- Email Management -->
+    <div class="card">
+      <h2>Email Management</h2>
+      <p>Update the email linked to your subscription.</p>
+      <div class="row">
+        <input type="email" value="user@example.com">
+        <button>Update Email</button>
+      </div>
+    </div>
+
+    <!-- Opt-Out -->
+    <div class="card">
+      <h2>Opt-Out / Data Removal</h2>
+      <p>Control how your breached data is displayed.</p>
+      <div class="row">
+        <select>
+          <option>Keep my data searchable</option>
+          <option>Remove from public search</option>
+          <option>Remove from public search + delete breach list</option>
+          <option>Delete my email completely</option>
+        </select>
+        <button class="danger">Confirm Removal</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
