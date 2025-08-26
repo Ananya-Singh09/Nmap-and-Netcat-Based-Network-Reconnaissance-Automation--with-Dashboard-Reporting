@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omnix</title>
+    <style>
+        /* ===== RESET ===== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #e8e8e8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* ===== SIDEBAR ===== */
+        
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 230px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding-top: 20px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .sidebar h2 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #4cc9f0;
+            font-weight: bold;
+        }
+        
+        .sidebar a {
+            display: block;
+            color: #bbb;
+            padding: 12px 20px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #4cc9f0;
+            padding-left: 25px;
+        }
+        /* ===== MAIN ===== */
+        
+        .main {
+            margin-left: 230px;
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .topbar h1 {
+            font-size: 20px;
+        }
+        
+        .btn {
+            background: linear-gradient(90deg, #4cc9f0, #4361ee);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(76, 201, 240, 0.5);
+        }
+        /* ===== KPI CARDS ===== */
+        
+        .kpi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .kpi {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .kpi:hover {
+            transform: translateY(-5px);
+        }
+        
+        .kpi h3 {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        
+        .kpi span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4cc9f0;
+        }
+        /* ===== CHART ===== */
+        
+        .chart {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            backdrop-filter: blur(6px);
+        }
+        /* ===== FOOTER ===== */
+        
+        footer {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            bottom: 0;
+            left: 230px;
+            right: 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        footer a {
+            color: #4cc9f0;
+            text-decoration: none;
+        }
+        /* ===== POPUP ===== */
+        
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .popup {
+            background: #112240;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .popup h2 {
+            margin-bottom: 15px;
+            color: #4cc9f0;
+        }
+        
+        .popup button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #4cc9f0;
+            color: #0a192f;
+            font-weight: bold;
+        }
+        
+        .popup button:hover {
+            background: #3bbbe0;
+        }
+        /* ===== RESPONSIVE ===== */
+        
+        @media (max-width: 700px) {
+            .sidebar {
+                width: 60px;
+            }
+            .sidebar h2 {
+                display: none;
+            }
+            .sidebar a {
+                font-size: 14px;
+                padding: 10px;
+                text-align: center;
+            }
+            .main {
+                margin-left: 60px;
+            }
+            footer {
+                left: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Omnix</h2>
+        <a href="file:///C:/Users/bhupe/Desktop/Project/Dashboard.html">📊 Dashboard</a>
+        <a href="file:///C:/Users/bhupe/Desktop/Project/Scans.html">🔍 Live Scans</a>
+        <a href="file:///C:/Users/bhupe/Desktop/Project/History.html">📜 History</a>
+        <a href="#">💻 Hosts</a>
+        <a href="#">📑 Reports</a>
+        <a href="#">⚙ Settings</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+        <div class="topbar">
+            <h1>Dashboard Overview</h1>
+            <button class="btn"><a href="file:///C:/Users/bhupe/Desktop/Project/Scans.html">🚀 Start Scan</button></a>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-container">
+            <div class="kpi">
+                <h3>Total Hosts</h3>
+                <span>125</span>
+            </div>
+            <div class="kpi">
+                <h3>Active Hosts</h3>
+                <span>87</span>
+            </div>
+            <div class="kpi">
+                <h3>Open Ports</h3>
+                <span>432</span>
+            </div>
+            <div class="kpi">
+                <h3>Critical Findings</h3>
+                <span style="color:#ff4d4d;">5</span>
+            </div>
+        </div>
+
+        <!-- Chart Placeholder -->
+        <div class="chart">
+            [ Scan Results Chart Placeholder ]
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        Omnix Dashboard © 2025 | Designed by <a href="#">Omnix</a> | Contact: <a href="mailto:contact@omnix.com">contact@omnix.com</a> | Privacy Policy | <a href="file:///C:/Users/bhupe/Desktop/Project/T&C.html">Terms of Service</a> |
+        <a href="file:///C:/Users/bhupe/Desktop/Project/Help.html">Help & Support</a> | Documentation | API Access | Careers
+    </footer>
+
+    <!-- POPUP -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <h1>⚠ Is your device hacked?</h1>
+            <button onclick="closePopup()">Check</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById("popupOverlay").style.display = "flex";
+            }, 2000);
+        }
+
+        function closePopup() {
+            document.getElementById("popupOverlay").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
