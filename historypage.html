@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Scan History</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43); /* matched dashboard gradient */
+        color: #d1d5db;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #00bcd4; /* dashboard cyan text */
+        margin-bottom: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 90%;
+        background-color: rgba(15, 32, 39, 0.85); /* semi-transparent dark panel */
+        box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    th {
+        background-color: rgba(0, 188, 212, 0.08); /* header tint */
+        color: #00bcd4;
+    }
+
+    tr:hover {
+        background-color: rgba(0, 188, 212, 0.05);
+    }
+
+    /* Status colors */
+    .safe {
+        color: #22c55e;
+    }
+    .compromised {
+        color: #ef4444;
+    }
+    .warning {
+        color: #facc15;
+    }
+
+    .footer {
+        margin-top: 30px;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(15, 32, 39, 0.85);
+        color: #00bcd4;
+        font-size: 14px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+    }
+
+    .footer-content {
+        max-height: 80px;
+        overflow-y: auto;
+    }
+</style>
+</head>
+<body>
+
+<h1>Network Scan History</h1>
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>IP Address</th>
+        <th>Status</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td>2025-08-14</td>
+        <td>192.168.0.101</td>
+        <td class="safe">Safe</td>
+        <td>No vulnerabilities found</td>
+    </tr>
+    <tr>
+        <td>2025-08-13</td>
+        <td>192.168.0.105</td>
+        <td class="compromised">Compromised</td>
+        <td>Exposed ports: 21, 3389</td>
+    </tr>
+    <tr>
+        <td>2025-08-12</td>
+        <td>192.168.0.110</td>
+        <td class="warning">Warning</td>
+        <td>Weak password detected</td>
+    </tr>
+</table>
+
+<div class="footer">
+    <div class="footer-content">
+        Last 10 scans are displayed here. Scroll for more history.<br>
+        System powered by CyberShield Scanner v2.0<br>
+        Contact: admin@cybershield.com
+    </div>
+</div>
+
+</body>
+</html>
