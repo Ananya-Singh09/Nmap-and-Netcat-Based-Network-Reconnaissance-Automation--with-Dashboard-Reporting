@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Reconnaissance Tool</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: radial-gradient(circle at top left, #0d0d0d, #1a1a1a);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        flex-direction: column;
+    }
+
+    .container {
+        background: rgba(20, 20, 20, 0.9);
+        padding: 2em;
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        max-width: 600px;
+        width: 90%;
+        text-align: center;
+        border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    h1 {
+        font-size: 1.8em;
+        color: #00f7ff;
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        color: #aaa;
+        margin-bottom: 2em;
+        font-size: 0.95em;
+    }
+
+    .form-group {
+        margin-bottom: 1.5em;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+        color: #00f7ff;
+    }
+
+    input[type="text"], select {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.3);
+        font-size: 0.95em;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(90deg, #00f7ff, #007bff);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.03);
+        background: linear-gradient(90deg, #00ffe0, #0066ff);
+    }
+
+    .results-container {
+        margin-top: 2em;
+        padding: 1em;
+        background: rgba(0, 255, 255, 0.05);
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        border-radius: 6px;
+        text-align: left;
+    }
+
+    #output {
+        white-space: pre-wrap;
+        font-family: 'Courier New', Courier, monospace;
+        color: #00f7ff;
+        font-size: 0.9em;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    footer {
+        margin-top: 2em;
+        font-size: 0.85em;
+        color: #666;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    footer a {
+        color: #00f7ff;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Network Reconnaissance Automation</h1>
+        <p>A futuristic web tool for Nmap and Netcat scans</p>
+
+        <form id="reconForm">
+            <div class="form-group">
+                <label for="target">Target IP/Hostname:</label>
+                <input type="text" id="target" name="target" placeholder="e.g., 192.168.1.1 or example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="scanType">Select Scan Type:</label>
+                <select id="scanType" name="scanType">
+                    <option value="nmap_quick">Nmap - Quick Scan (-F)</option>
+                    <option value="nmap_full">Nmap - Full TCP Scan (-p 1-65535)</option>
+                    <option value="nmap_version">Nmap - Version Detection (-sV)</option>
+                    <option value="netcat_port">Netcat - Single Port Scan</option>
+                    <option value="netcat_range">Netcat - Port Range Scan</option>
+                </select>
+            </div>
+            
+            <div id="portGroup" class="form-group hidden">
+                <label for="port">Port/Port Range:</label>
+                <input type="text" id="port" name="port" placeholder="e.g., 80 or 1-1024">
+            </div>
+
+            <button type="submit">Run Scan</button>
+        </form>
+
+        <div id="results" class="results-container">
+            <h2>Scan Results</h2>
+            <pre id="output">Results will appear here...</pre>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Omnix | Designed by <a href="#">Omnix</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
