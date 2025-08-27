@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Email Management — Quick Intro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+    nav a {
+      color: #cbd5e1;
+      margin-left: 16px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: white;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 24px;
+    }
+    h2 {
+      color: #0f172a;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+    }
+    .card h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+    .lead {
+      font-size: 18px;
+      color: #475569;
+    }
+    .cta {
+      margin-top: 24px;
+    }
+    .btn {
+      background: #2563eb;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+    }
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Email Management</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Welcome to Smarter Email Management</h2>
+      <p class="lead">Efficiently organize, filter, and secure your email communication. Stay focused and productive while we handle the clutter.</p>
+      <div class="cta">
+        <button class="btn" onclick="alert('Getting Started with Email Management...')">Get Started</button>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>Core Features</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Inbox Organization</h3>
+          <p>Automatically categorize and label emails to keep your inbox clean and manageable.</p>
+        </div>
+        <div class="card">
+          <h3>Spam Protection</h3>
+          <p>Advanced filters block unwanted and suspicious messages before they reach you.</p>
+        </div>
+        <div class="card">
+          <h3>Smart Search</h3>
+          <p>Find important conversations quickly with intelligent search and filters.</p>
+        </div>
+        <div class="card">
+          <h3>Collaboration Tools</h3>
+          <p>Share emails, assign tasks, and integrate with productivity apps seamlessly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <h2>Why It Matters</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Save Time</h3>
+          <p>Spend less time sorting through emails and more time on meaningful work.</p>
+        </div>
+        <div class="card">
+          <h3>Stay Secure</h3>
+          <p>Protect your data with enterprise‑grade security and encryption.</p>
+        </div>
+        <div class="card">
+          <h3>Boost Productivity</h3>
+          <p>With an organized inbox, you can focus on priorities without distractions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>FAQ</h2>
+      <div class="card">
+        <h3>Can I import my old emails?</h3>
+        <p>Yes, you can import from Gmail, Outlook, or any IMAP‑enabled service.</p>
+      </div>
+      <div class="card">
+        <h3>Is my data safe?</h3>
+        <p>All data is encrypted in transit and at rest, following best security practices.</p>
+      </div>
+      <div class="card">
+        <h3>Does it support mobile?</h3>
+        <p>Yes, our system is accessible on web and mobile, so you stay in control anywhere.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Need help? <a href="#" onclick="alert('Contact: support@email.test')">Contact Support</a></p>
+      <p>© <span id="year"></span> Acme Email Management</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

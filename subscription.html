@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subscription & Billing — Quick Intro</title>
+  <style>
+    :root {
+      --bg: #0f172a;      /* slate-900 */
+      --card: #111827;    /* gray-900 */
+      --muted: #94a3b8;   /* slate-400 */
+      --text: #e5e7eb;    /* gray-200 */
+      --brand: #6366f1;   /* indigo-500 */
+      --brand-2: #22d3ee; /* cyan-400 */
+      --ring: rgba(99,102,241,.35);
+      --ok: #10b981;      /* emerald-500 */
+      --warn: #f59e0b;    /* amber-500 */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.1), transparent),
+               radial-gradient(900px 500px at 110% 10%, rgba(99,102,241,.15), transparent), var(--bg);
+    }
+    a { color: var(--brand-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; padding: 8px 0 24px; }
+    .logo { display:flex; align-items:center; gap:10px; font-weight: 700; letter-spacing:.2px; }
+    .logo svg { width: 28px; height: 28px; }
+    .nav a { margin-left: 16px; color: var(--muted); }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items:center; }
+    .badge { display:inline-flex; align-items:center; gap:8px; background: rgba(99,102,241,.1); color:#c7d2fe; border:1px solid rgba(99,102,241,.25); padding:6px 10px; border-radius:999px; font-size:12px; }
+    h1 { margin: 10px 0 12px; font-size: clamp(28px, 3.8vw, 42px); line-height:1.15; }
+    .lead { color: var(--muted); max-width: 60ch; }
+    .cta { display:flex; gap:12px; margin-top: 18px; flex-wrap: wrap; }
+    .btn { border:1px solid rgba(255,255,255,.12); background: linear-gradient(180deg, rgba(99,102,241,.25), rgba(99,102,241,.15)); color:white; padding: 12px 18px; border-radius: 14px; cursor:pointer; font-weight:600; }
+    .btn.secondary { background: transparent; }
+    .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+
+    .hero-card { background: linear-gradient(180deg, rgba(17,24,39,.8), rgba(17,24,39,.6)); border:1px solid rgba(255,255,255,.06); padding: 18px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,.3);
+      display:grid; gap:10px; }
+    .kpis { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top: 8px; }
+    .kpi { background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:12px; }
+    .kpi b { font-size: 20px; display:block; }
+
+    /* Concepts */
+    .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top: 28px; }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 16px; }
+    .card h3 { margin: 6px 0 8px; font-size: 18px; }
+    .pill { display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.08); color: var(--muted); }
+
+    /* Pricing */
+    .pricing { margin-top: 34px; display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .tier { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius: 18px; padding: 18px; position: relative; }
+    .tier.popular { outline: 2px solid var(--brand); }
+    .price { font-size: 30px; font-weight: 800; margin: 6px 0; }
+    .features { list-style: none; padding: 0; margin: 10px 0 16px; color: var(--muted); }
+    .features li { display:flex; align-items:center; gap:8px; margin: 6px 0; }
+    .features svg { width: 16px; height: 16px; flex: none; }
+
+    /* FAQ */
+    .faq { margin-top: 36px; }
+    details { background: #0b1220; border: 1px solid rgba(255,255,255,.06); padding: 14px 16px; border-radius: 14px; margin: 10px 0; }
+    summary { cursor: pointer; font-weight: 600; }
+
+    footer { margin: 40px 0 10px; color: var(--muted); text-align:center; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .cards, .pricing { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo" aria-label="Brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 3l7.5 4.33v9.34L12 21l-7.5-4.33V7.33L12 3z" opacity=".35"/>
+          <path d="M12 7l4.5 2.6v5.2L12 17l-4.5-2.6V9.6L12 7z"/>
+        </svg>
+        <span>Acme Subscriptions</span>
+      </div>
+      <nav class="nav" aria-label="primary">
+        <a href="#concepts">Concepts</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">Billing FAQ</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <span class="badge" aria-label="badge"><span>•</span> Subscription & Billing 101</span>
+        <h1 id="title">Understand plans, billing cycles, and invoices in minutes.</h1>
+        <p class="lead">This quick intro explains how subscriptions work (plans & tiers), how we bill (monthly or yearly), what payment methods we accept, and how prorations and refunds are handled.</p>
+        <div class="cta">
+          <button class="btn" onclick="alert('Starting free trial…')">Start free trial</button>
+          <a class="btn secondary" href="#pricing" role="button">View plans</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Account snapshot">
+        <div class="pill">Your snapshot</div>
+        <div class="kpis">
+          <div class="kpi"><span>Current plan</span><b>Pro</b><small class="muted">Renews Sep 30</small></div>
+          <div class="kpi"><span>Seats</span><b>5</b><small class="muted">1 pending invite</small></div>
+          <div class="kpi"><span>Next invoice</span><b>₹2,999</b><small class="muted">incl. taxes</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Core Concepts -->
+    <section id="concepts" class="cards" aria-label="Core concepts">
+      <article class="card">
+        <div class="pill">Plans</div>
+        <h3>Choose a tier</h3>
+        <p class="muted">Pick Basic, Pro, or Enterprise depending on your usage and support needs.</p>
+      </article>
+      <article class="card">
+        <div class="pill">Billing cycle</div>
+        <h3>Monthly or yearly</h3>
+        <p class="muted">Save up to 20% with annual billing. Change cycles anytime—costs prorate fairly.</p>
+      </article>
+      <article class="card">
+        <div class="pill">Payments</div>
+        <h3>Secure methods</h3>
+        <p class="muted">Cards, UPI, and net‑banking supported. Invoices & GST‑compliant receipts are emailed.</p>
+      </article>
+      <article class="card">
+        <div class="pill">Invoices</div>
+        <h3>Transparent charges</h3>
+        <p class="muted">Each invoice lists plan fees, seat changes, taxes, and any credits.</p>
+      </article>
+      <article class="card">
+        <div class="pill">Proration</div>
+        <h3>Fair adjustments</h3>
+        <p class="muted">Upgrades or seat changes mid‑cycle are prorated on your next bill.</p>
+      </article>
+      <article class="card">
+        <div class="pill">Cancellations</div>
+        <h3>Easy exits</h3>
+        <p class="muted">Cancel anytime. Access remains until the end of the paid period.</p>
+      </article>
+    </section>
+
+    <!-- Pricing Overview -->
+    <section id="pricing" class="pricing" aria-label="Pricing">
+      <article class="tier">
+        <h3>Basic</h3>
+        <div class="price">₹0<span style="font-weight:500;font-size:14px"> / mo</span></div>
+        <ul class="features">
+          <li aria-label="check">✔ 1 seat</li>
+          <li>✔ Community support</li>
+          <li>✔ Core features</li>
+        </ul>
+        <button class="btn" onclick="alert('Selected Basic')">Get started</button>
+      </article>
+      <article class="tier popular" aria-label="popular">
+        <div class="pill">Most popular</div>
+        <h3>Pro</h3>
+        <div class="price">₹599<span style="font-weight:500;font-size:14px"> / mo</span></div>
+        <ul class="features">
+          <li>✔ Up to 10 seats</li>
+          <li>✔ Priority support</li>
+          <li>✔ Advanced analytics</li>
+        </ul>
+        <button class="btn" onclick="alert('Selected Pro')">Choose Pro</button>
+      </article>
+      <article class="tier">
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+        <ul class="features">
+          <li>✔ Unlimited seats</li>
+          <li>✔ SSO/SAML</li>
+          <li>✔ Dedicated manager</li>
+        </ul>
+        <button class="btn" onclick="alert('Contacting sales…')">Contact sales</button>
+      </article>
+    </section>
+
+    <!-- Billing FAQ -->
+    <section id="faq" class="faq" aria-label="Billing FAQ">
+      <h2>Billing FAQ</h2>
+      <details>
+        <summary>How am I charged for seat changes?</summary>
+        <p>Seat additions/removals are prorated for the remaining days in the billing cycle and appear on the next invoice.</p>
+      </details>
+      <details>
+        <summary>Do you offer refunds?</summary>
+        <p>We offer pro‑rated refunds where required by law and for accidental duplicate charges. Contact support within 14 days.</p>
+      </details>
+      <details>
+        <summary>Can I switch between monthly and yearly?</summary>
+        <p>Yes. The change takes effect immediately and any difference is credited or charged on a pro‑rated basis.</p>
+      </details>
+      <details>
+        <summary>What payment methods are supported?</summary>
+        <p>Major cards, UPI, and net‑banking. Offline invoicing and bank transfer available on Enterprise.</p>
+      </details>
+    </section>
+
+    <footer>
+      <p>Need help with billing? <a href="#" onclick="alert('Email: billing@acme.test')">Contact support</a>. © <span id="y"></span> Acme</p>
+    </footer>
+  </div>
+  <script>
+    // Set year dynamically
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

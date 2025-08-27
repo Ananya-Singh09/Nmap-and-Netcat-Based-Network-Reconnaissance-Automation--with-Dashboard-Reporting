@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Opt-Out & Data Removal — Intro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #f9fafb;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    header {
+      background: #1e293b;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+    nav a {
+      color: #cbd5e1;
+      margin-left: 16px;
+      text-decoration: none;
+    }
+    nav a:hover { color: white; }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
+    h2 { color: #0f172a; }
+    .lead { font-size: 18px; color: #475569; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+    }
+    .card h3 { margin-top: 0; font-size: 18px; }
+    .btn {
+      background: #dc2626;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn:hover { background: #b91c1c; }
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Data Privacy</h1>
+    <nav>
+      <a href="#steps">Steps</a>
+      <a href="#rights">Your Rights</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Opt-Out & Data Removal</h2>
+      <p class="lead">We value your privacy. You are in control of your personal information, and you can request to opt out or have your data removed from our systems at any time.</p>
+      <button class="btn" onclick="alert('Processing your opt-out request...')">Request Data Removal</button>
+    </section>
+
+    <section id="steps">
+      <h2>How It Works</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>1. Submit Request</h3>
+          <p>Click the removal button or email us directly with your request.</p>
+        </div>
+        <div class="card">
+          <h3>2. Verification</h3>
+          <p>We verify your identity to ensure your data is secure.</p>
+        </div>
+        <div class="card">
+          <h3>3. Removal</h3>
+          <p>Your data is permanently deleted within the required time frame.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="rights">
+      <h2>Your Rights</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Right to Access</h3>
+          <p>Request a copy of the data we store about you.</p>
+        </div>
+        <div class="card">
+          <h3>Right to Delete</h3>
+          <p>You can ask us to delete your personal data permanently.</p>
+        </div>
+        <div class="card">
+          <h3>Right to Opt-Out</h3>
+          <p>Opt out of data collection, newsletters, or marketing anytime.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>FAQ</h2>
+      <div class="card">
+        <h3>How long does removal take?</h3>
+        <p>Data is typically removed within 30 days of your verified request.</p>
+      </div>
+      <div class="card">
+        <h3>Will I get confirmation?</h3>
+        <p>Yes, you will receive an email confirmation once your data is deleted.</p>
+      </div>
+      <div class="card">
+        <h3>Can I reverse a removal?</h3>
+        <p>No, once data is deleted it cannot be restored. You may create a new account if needed.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Need help with your data request? <a href="#" onclick="alert('Email: privacy@acme.test')">Contact Privacy Support</a></p>
+      <p>© <span id="year"></span> Acme Privacy Center</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
